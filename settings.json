@@ -1,0 +1,9 @@
+{
+    "completitionSettings": {
+        "model": "openai/gpt-oss-20b",
+        "max_tokens": 512,
+        "temperature": 0.1
+    },
+    "endtaskSignal": "assist-endtask",
+    "emptyUserMessage": "%The server returned an empty response. It is necessary to check one or more hypotheses: 1. check the result of executing previous commands; 2. radically change the command and try to perform the action in a different way; 3. change the approach to executing commands;%"
+}

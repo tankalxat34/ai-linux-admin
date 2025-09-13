@@ -1,0 +1,4 @@
+- Create three directories: ~/dir100, ~/dir110, ~/dir120;
+- Grant chmod 777 rights to the created directories;
+- Check the existence of the created directories.
+- Create a file in the ~/dir100 directory main.py . In this file, write an algorithm for sorting the array with a bubble.
