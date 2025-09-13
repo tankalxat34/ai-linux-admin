@@ -63,7 +63,10 @@ while True:
             print(f"Got signal from model `{SETTINGS["endtaskSignal"]}`")
             actions.endtaskCallback(messages)
 
-        linux_reply = actions.sshCommand(ssh, assistant_reply)
+        if "sudo" in assistant_reply:
+            linux_reply = actions.sshSudoCommand(ssh, assistant_reply, os.getenv("SSH_SUDO_PASSWORD"))
+        else:
+            linux_reply = actions.sshCommand(ssh, assistant_reply)
 
         if not bool(linux_reply):
             linux_reply = SETTINGS["emptyUserMessage"]

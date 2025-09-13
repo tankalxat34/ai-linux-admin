@@ -23,6 +23,12 @@ def sshCommand(ssh: paramiko.SSHClient, command: str) -> str:
     stdin, stdout, stderr = ssh.exec_command(command)
     return str(stdout.read().decode()).strip()
 
+def sshSudoCommand(ssh: paramiko.SSHClient, command: str, sudo_password: str) -> str:
+    stdin, stdout, stderr = ssh.exec_command(command, get_pty=True)
+    stdin.write(sudo_password  + "\n")
+    stdin.flush()
+    return str(stdout.read().decode()).strip()
+
 def readFile(path: str) -> str:
     with open(path, "r", encoding="utf-8") as file:
         return file.read()
